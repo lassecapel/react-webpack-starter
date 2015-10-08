@@ -1,9 +1,9 @@
 import React from 'react';
-import Component from './Component.jsx';
+import List from './List.jsx';
 
 window.onload = () => {
   React.render(
-    <Component />,
+    <List />,
     document.querySelector('#container')
   );
 };

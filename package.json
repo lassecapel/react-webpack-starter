@@ -3,7 +3,12 @@
   "version": "0.1.0",
   "description": "React webpack starter template",
   "main": "lib/index.js",
-  "dependencies": {},
+  "dependencies": {
+    "google-map-react": "^0.5.9",
+    "react-controllables": "^0.6.0",
+    "react-dom": "^0.1.0",
+    "react-pure-render": "^1.0.2"
+  },
   "author": {
     "name": "Krasimir Tsonev",
     "email": "info@krasimirtsonev.com",
