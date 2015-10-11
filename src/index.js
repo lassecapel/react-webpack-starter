@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import {List} from './components/KialaPicker';
 import data from '../lib/data.js';
 import assign from 'lodash/object/extend';
@@ -8,7 +9,7 @@ window.onload = () => {
     pickupPoints: data.PickupPointList,
   }, window.__INITIAL_STATE__);
 
-  React.render(
+  ReactDOM.render(
     <List {...state} />,
     document.querySelector('#picker')
   );

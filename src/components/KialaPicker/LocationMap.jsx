@@ -1,15 +1,9 @@
-import React, {Component} from 'react';
+import React from 'react';
 
-class LocationMap extends Component {
-  render() {
-    return (
-      <p>React Map!</p>
-    );
-  }
+function LocationMap() {
+  return (
+    <p>React Map!</p>
+  );
 }
-
-LocationMap.proptypes = {
-
-};
 
 export default LocationMap;

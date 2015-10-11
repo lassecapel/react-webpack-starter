@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import TimeSlot from './TimeSlot';
+import Address from './Address';
 import classnames from 'classnames';
 
 const styles = {
@@ -46,16 +47,22 @@ class Location extends Component {
       `pickup-point-list__address--${providerName}`
     );
 
+    const style = {
+      marginLeft: '1.5em',
+      display: 'block',
+    };
+
     return (
       <li className="pickup-point-list__item">
         <div className="fluid-grid">
           <div className="fluid-grid__item">
+
             <div className={addressClass}>
               <p className="nosp">{location.Name}</p>
-              <p className="small_details nosp">{location.Address.Street}, {location.Address.Zip}</p>
+              <Address {...location.Address} />
               <p className="small_details  nosp">afhalen bij de Albert Heijn servicebalie</p>
-              <a href="#" className="small_details" onClick={this.handleClick}>openingstijden</a>
             </div>
+            <a href="#" className="small_details" onClick={this.handleClick} style={style}>openingstijden</a>
             <div className="pickup-point-list__opening-hours" style={tableStyle} >
               <table className="table--openinghours small_details">
                 <tbody>
