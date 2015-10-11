@@ -3,9 +3,46 @@
 <head>
   <meta charset="UTF-8">
   <title>React webpack starter</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+    }
+
+    #content_wrapper {
+      position: relative;
+      margin: 0 auto;
+      padding-right: 3em;
+      padding-left: 3em;
+      padding-top: 3em;
+      min-height: 100%;
+      width: 972px;
+      background-color: #fff;
+      overflow: hidden;
+    }
+    #picker {
+      width: 30em;
+      padding: 1em;
+      display: block;
+      float: left;
+      background-color: #F3FAFB;
+    }
+  </style>
+  <link rel="stylesheet" type="text/css" media="all" href="http://s.s-bol.com/nl/static/sass/dist/core.min.css"></link>
+  <link rel="stylesheet" type="text/css" media="all" href="https://s.s-bol.com/nl/static/sass/dist/checkout-responsive.min.css"></link>
 </head>
 <body>
-  <div id="container"></div>
-  <script src="app.js"></script>
+  <div id="content_wrapper">
+    <div id="picker"></div>
+    <div id="accordion"></div>
+  </div>
+  <script>
+    // from server
+    window.__INITIAL_STATE__ = {
+      searchTerm: '3515CZ',
+      showMap: Math.floor((Math.random() * 10) + 1) % 2 === 0
+    };
+  </script>
+  <script src="/example/app.js"></script>
 </body>
 </html>

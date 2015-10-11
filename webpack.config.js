@@ -13,37 +13,46 @@ if (env === 'build') {
   plugins.push(new UglifyJsPlugin({ minimize: true }));
   outputFile = appName + '.min.js';
 } else {
+  plugins.push(new webpack.HotModuleReplacementPlugin());
   outputFile = appName + '.js';
 }
 
 var config = {
-  entry: './src/index.js',
+  entry: [
+    'webpack-dev-server/client?http://localhost:9000',
+    'webpack/hot/only-dev-server',
+    './src/index.js'
+  ],
   devtool: 'source-map',
   output: {
-    path: __dirname + '/lib',
+    path: __dirname + '/dist',
     filename: outputFile,
-    publicPath: __dirname + '/example'
+    publicPath: '/example/'
   },
   module: {
     loaders: [
       {
         test: /(\.jsx|\.js)$/,
-        loader: 'babel-loader?stage=0',
+        loaders: ['react-hot', 'babel'],
         exclude: /(node_modules|bower_components)/
       },
       {
         test: /(\.jsx|\.js)$/,
         loader: "eslint-loader",
-        exclude: /node_modules/
+        exclude: /(node_modules|lib)/
       }
     ]
   },
-  plugins: plugins
+  plugins: plugins,
+  resolve: {
+    extensions: ['', '.js', '.jsx', '.json']
+  }
+
 };
 
 if (env === 'dev') {
   new WebpackDevServer(webpack(config), {
-    contentBase: './example',
+    publicPath: config.output.publicPath,
     hot: true,
     debug: true
   }).listen(port, host, function (err, result) {
